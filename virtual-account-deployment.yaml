@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: virtualaccount
+  namespace: msa
+  labels:
+    app: virtualaccount
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: virtualaccount
+  template:
+    metadata:
+      labels:
+        app: virtualaccount
+    spec:
+      containers:
+      - name: virtualaccount
+        image: siokim002/sinbi_virtual_account:latest   # 이미지로 변경
+        ports:
+        - containerPort: 8082
+        env:
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: password
+        resources:
+          requests:
+            cpu: "300m"
+            memory: "512Mi"
+          limits:
+            cpu: "700m"
+            memory: "1Gi"
