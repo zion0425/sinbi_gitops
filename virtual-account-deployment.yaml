@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: virtualaccount
-        image: siokim002/sinbi_virtual_account:latest   # 이미지로 변경
+        image: siokim002/sinbi_virtual_account:15
         ports:
         - containerPort: 8080
         resources:

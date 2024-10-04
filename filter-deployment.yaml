@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: filter
-        image: siokim002/sinbi_filter:latest   
+        image: siokim002/sinbi_filter:15
         ports:
         - containerPort: 8080
         resources:
