@@ -6,7 +6,7 @@ metadata:
   labels:
     app: virtualaccount
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: virtualaccount
@@ -20,12 +20,6 @@ spec:
         image: siokim002/sinbi_virtual_account:latest   # 이미지로 변경
         ports:
         - containerPort: 8082
-        env:
-        - name: DB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql-secret
-              key: password
         resources:
           requests:
             cpu: "300m"
