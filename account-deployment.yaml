@@ -6,7 +6,7 @@ metadata:
   labels:
     app: account
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: account
@@ -19,7 +19,7 @@ spec:
       - name: account
         image: siokim002/sinbi_account:latest   # Account 이미지
         ports:
-        - containerPort: 8081
+        - containerPort: 8080
         env:
         - name: DB_PASSWORD
           valueFrom:
