@@ -20,12 +20,6 @@ spec:
         image: siokim002/sinbi_user:latest   
         ports:
         - containerPort: 8080
-        env:
-        - name: DB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql-secret
-              key: password
         resources:
           requests:
             cpu: "300m"
