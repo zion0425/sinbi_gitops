@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: user
-        image: siokim002/sinbi_user:20
+        image: siokim002/sinbi_user:21
         ports:
         - containerPort: 8080
         resources:
