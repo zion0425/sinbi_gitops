@@ -27,21 +27,3 @@ spec:
           limits:
             cpu: "500m"
             memory: "512Mi"
-
-
-# frontend-service.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: frontend-service
-  namespace: msa
-  labels:
-    app: frontend
-spec:
-  selector:
-    app: frontend
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
-  type: ClusterIP
