@@ -7,15 +7,15 @@ spec:
   generators:
     - list:
         elements:
-          - name: frontend-app
+          - name: frontend
             path: frontend-deployment.yaml
-          - name: user-app
+          - name: user
             path: user-deployment.yaml
-          - name: account-app
+          - name: account
             path: account-deployment.yaml
-          - name: filter-app
+          - name: filter
             path: filter-deployment.yaml
-          - name: virtual-account-app
+          - name: virtualaccount
             path: virtual-account-deployment.yaml
   template:
     metadata:
