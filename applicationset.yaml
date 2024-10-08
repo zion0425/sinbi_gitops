@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: multi-applications
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - name: frontend-app
+            path: frontend-deployment.yaml
+          - name: user-app
+            path: user-deployment.yaml
+          - name: account-app
+            path: account-deployment.yaml
+          - name: filter-app
+            path: filter-deployment.yaml
+          - name: virtual-account-app
+            path: virtual-account-deployment.yaml
+  template:
+    metadata:
+      annotations:
+        argocd-notifications.argoproj.io/subscribe.on-sync-succeeded: subscription
+        argocd-notifications.argoproj.io/subscribe.on-sync-failed: subscription
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/zion0425/sinbi_gitops.git 
+        targetRevision: HEAD
+        path: './'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: msa
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
