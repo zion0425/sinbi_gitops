@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: siokim002/sinbi_frontend:54
+        image: siokim002/sinbi_frontend:56
         ports:
         - containerPort: 80
         resources:
